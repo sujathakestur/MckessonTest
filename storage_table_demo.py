@@ -70,6 +70,30 @@ raw_input('Press Enter to continue...')
 car = Entity()
 car.PartitionKey = 'cars'
 car.RowKey = '001'
+car.description = 'Pepperoni'
+car.cost = 18
+table_service.insert_entity('itemstable', car)
+print('Created entry for pepperoni...')
+
+car = Entity()
+car.PartitionKey = 'carmenu'
+car.RowKey = '002'
+car.description = 'Veggie'
+car.cost = 15
+table_service.insert_entity('itemstable', car)
+print('Created entry for veggie...')
+
+car = Entity()
+car.PartitionKey = 'carmenu'
+car.RowKey = '003'
+car.description = 'Hawaiian'
+car.cost = 12
+table_service.insert_entity('itemstable', car)
+print('Created entry for Hawaiian...\n')
+
+car = Entity()
+car.PartitionKey = 'cars'
+car.RowKey = '001'
 car.make = 'Toyota'
 car.model = 'Camry'
 car.year = '2016'
@@ -94,9 +118,9 @@ car.PartitionKey = 'cars'
 car.RowKey = '003'
 car.make = 'Nissan'
 car.model = 'Maxima'
-car.year = '2015'
-car.color = 'White'
-car.price = 30,000
+car.year = '2017'
+car.color = 'Black'
+car.price = 55000
 table_service.insert_entity('itemstable', car)
 print('Created entry for Nissan...\n')
 
@@ -134,12 +158,12 @@ raw_input('Press Enter to continue...')
 
 # In this query, you define the partition key to search within, and then which properties to retrieve
 # Structuring queries like this improves performance as your application scales up and keeps the queries efficient
-items = table_service.query_entities('itemstable', filter="PartitionKey eq 'carmenu'", select='description,cost')
+items = table_service.query_entities('itemstable', filter="PartitionKey eq 'cars'", select='description,cost')
 for item in items:
     print('Name: ' + item.description)
     print('Cost: ' + str(item.cost) + '\n')
 
-items = table_service.query_entities('itemstable', filter="PartitionKey eq 'coffeestore'", select='description,price')
+items = table_service.query_entities('itemstable', filter="PartitionKey eq 'coffees'", select='description,price')
 for item in items:
     print('Name: ' + item.description)
     print('Price: ' + str(item.price) + '\n')
