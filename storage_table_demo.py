@@ -74,7 +74,7 @@ car.make = 'Toyota'
 car.model = 'Camry'
 car.year = '2016'
 car.color = 'Silver'
-car.price = 35,000
+car.price = 35000
 table_service.insert_entity('itemstable', car)
 print('Created entry for Toyota...')
 
@@ -85,7 +85,7 @@ car.make = 'Honda'
 car.model = 'Acura'
 car.year = '2017'
 car.color = 'Black'
-car.price = 55,000
+car.price = 55000
 table_service.insert_entity('itemstable', car)
 print('Created entry for Honda...')
 
@@ -98,7 +98,7 @@ car.year = '2015'
 car.color = 'White'
 car.price = 30,000
 table_service.insert_entity('itemstable', car)
-print('Created entry for Nissan...')
+print('Created entry for Nissan...\n')
 
 # A partition key tracks how like-minded entries in the Table are created and queried.
 # A row key is a unique ID for each entity in the partition
